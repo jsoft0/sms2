@@ -9,12 +9,10 @@ class Teacher extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'address',
-        'phone',
-        'email',
+    protected $guarded=['id'];
 
-    ] ;
-
+    public function assignSubjects()
+    {
+        return $this->hasMany(AssignSubject::class);
+    }
 }

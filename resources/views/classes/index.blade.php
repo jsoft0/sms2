@@ -27,11 +27,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Teacher ID</th>
-                                    <th>Teacher Name</th>
                                     <th>Class</th>
-                                    <th>Section</th>
-                                    <th>Subject</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -40,11 +36,7 @@
                                 @foreach ($classGroups as $classGroup)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $classGroup->teacher_id }}</td>
                                         <td>{{ $classGroup->name }}</td>
-                                        <td>{{ $classGroup->class }}</td>
-                                        <td>{{ $classGroup->section }}</td>
-                                        <td>{{ $classGroup->subject }}</td>
                                         <td>
 
                                             <div class="dropdown">
@@ -55,19 +47,15 @@
 
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('class.edit', $classGroup->id) }}">Edit</a>
+                                                    <a class="dropdown-item" href="{{ route('classes.edit', $classGroup->id) }}">Edit</a>
 
-                                                    <a class="dropdown-item" href="#">
+                                                    <form action="{{ route('classes.destroy', $classGroup->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item">Delete</button>
+                                                    </form>
 
-                                                        <form action="{{ route('class.destroy', $classGroup->id) }}"
-                                                            method="POST">
-                                                            @csrf()
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-primary">Delete</button>
 
-                                                        </form>
-                                                    </a>
 
                                                 </div>
                                             </div>

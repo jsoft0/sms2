@@ -14,12 +14,16 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('add.class') }}">Add Class</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('class.list') }}">Class List</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('classes.create') }}">Add Class</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('classes.index') }}">Class List</a>
+                    </li>
                 </ul>
             </div>
-
         </li>
+
 
 
         <li class="nav-item active">
@@ -41,40 +45,53 @@
 
 
         <li class="nav-item active">
-            <a class="nav-link collapsed" data-toggle="collapse" href="#student" aria-expanded="false"
-                aria-controls="form-elements">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#student" aria-expanded="false" aria-controls="form-elements">
                 <i class="icon-columns menu-icon"></i>
                 <span class="menu-title">Students</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="student" style="">
                 <ul class="nav flex-column sub-menu">
-
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('add.students') }}">Add Student</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('teacher.index') }}">Student List</a></li>
-
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('students.create') }}">Add Student</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('students.index') }}">Student List</a></li>
                 </ul>
             </div>
         </li>
 
 
 
+
         <li class="nav-item active">
-            <a class="nav-link collapsed" data-toggle="collapse" href="#subject" aria-expanded="false"
-                aria-controls="form-elements">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#subject" aria-expanded="false" aria-controls="form-elements">
                 <i class="icon-columns menu-icon"></i>
                 <span class="menu-title">Subjects</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="subject" style="">
                 <ul class="nav flex-column sub-menu">
-
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('add.subjects') }}">Add Subject</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('subject.index') }}">Subject List</a></li>
-
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('subjects.create') }}">Add Subject</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('subjects.index') }}">Subject List</a></li>
                 </ul>
             </div>
         </li>
+
+
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#sections" aria-expanded="false" aria-controls="sections">
+                <i class="mdi mdi-clipboard-check-outline menu-icon"></i>
+                <span class="menu-title">Sections</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="sections">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('sections.index') }}">All Sections</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('sections.create') }}">Add Section</a></li>
+                </ul>
+            </div>
+        </li>
+
+
 
 
         <li class="nav-item active">

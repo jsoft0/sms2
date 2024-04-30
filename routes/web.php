@@ -4,10 +4,13 @@ use App\Models\Subject;
 use App\Models\Attendence;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AttendenceController;
 use App\Http\Controllers\ClassGroupController;
+use App\Http\Controllers\AssignSubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,17 +27,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('add-class', function () {
-    return view('class.add');
-})->name('add.class');
+Route::resource('classes', ClassGroupController::class);
 
-Route::get('list-class', [ClassGroupController::class, 'index'])->name('class.list');
-Route::post('add-class', [ClassGroupController::class, 'store'])->name('class.store');
 
-Route::delete('delete-class/{classGroup}', [ClassGroupController::class, 'destroy'])->name('class.destroy');
 
-Route::get('edit-class/{classGroup}', [ClassGroupController::class, 'edit'])->name('class.edit');
-Route::put('edit-class/{ClassGroup}', [ClassGroupController::class, 'update'])->name('class.update');
 
 Route::get('add-teacher', [TeacherController::class, 'create'])->name('teacher.create');
 
@@ -47,17 +43,36 @@ Route::put('edit-teacher/{teacher}', [TeacherController::class, 'update'])->name
 
 Route::delete('delete-teacher/{teacher}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 
-Route::get('add-student', [SubjectController::class,'create'])->name('add.students');
+
+// students
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
+Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
+Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
+Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 
 
 
-Route::get('add-subject', [SubjectController::class,'create'])->name('add.subjects');
 
-Route::post('add-subject', [SubjectController::class,'store'])->name('subject.store');
-Route::get('subjects', [SubjectController::class,'index'])->name('subject.index');
-Route::get('edit-subject/{subjects}', [SubjectController::class, 'edit'])->name('subject.edit');
-Route::PUT('edit-subject/{subject}', [SubjectController::class, 'update'])->name('subject.update');
-Route::delete('delete-subject/{subject}', [SubjectController::class, 'destroy'])->name('subject.destroy');
+
+Route::resource('subjects', SubjectController::class);
+
+
+//section
+
+
+
+Route::resource('sections', SectionController::class);
+
+
+
+
+
+
+Route::resource('assign_subjects', AssignSubjectController::class);
+
 
 
 Route::get('add-attendence', function () {

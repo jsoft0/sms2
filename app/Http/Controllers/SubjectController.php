@@ -3,69 +3,62 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
+use App\Models\ClassGroup;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SubjectController extends Controller
 {
-    public function index(){
-        $subjects=Subject::all();
-        // return view('subjects.index',['subjects'=>$subjects]);
-        return view('subjects.index',compact('subjects'));
-
+    public function index()
+    {
+        $subjects = Subject::all();
+        return view('subjects.index', compact('subjects'));
     }
+
     public function create()
     {
-        return view("subjects.add");
+        $classGroups = ClassGroup::all();
+        return view('subjects.create', compact('classGroups'));
     }
+
     public function store(Request $request)
     {
-        // return $request;
-
-        // $subject = new Subject;
-        // $subject->name=$request->s_name;
-        // $subject->course_code=$request->s_code;
-        // $subject->save();
-        DB::table('subjects')->insert([
-
-            'name'=>$request->s_name,
-            'course_code'=>$request->s_code,
-            'created_at'=>now(),
-            'updated_at'=>now(),
-
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'class_group_id' => 'required|exists:class_groups,id',
         ]);
 
-        return redirect()->back();
+        Subject::create($request->all());
+
+        return redirect()->route('subjects.index')->with('success', 'Subject created successfully.');
     }
 
-    public function edit($id){
+    public function show(Subject $subject)
+    {
+        return view('subjects.show', compact('subject'));
+    }
 
-        $subject = Subject::find($id);
-            return view("subjects.edit", compact("subject"));
-        }
-        public function update(Request $request,$id){
-            // $subject=Subject::find($id);
-            // $subject->update([
+    public function edit(Subject $subject)
+    {
+        $classGroups = ClassGroup::all();
+        return view('subjects.edit', compact('subject', 'classGroups'));
+    }
 
-            //     'name'=> $request->s_name,
-            //     'course_code'=>$request->s_code,
+    public function update(Request $request, Subject $subject)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'class_group_id' => 'required|exists:class_groups,id',
+        ]);
 
-            // ]);
+        $subject->update($request->all());
 
-            DB::table('subjects')->where('id',$id)->update([
-                 'name'=> $request->s_name,
-                'course_code'=>$request->s_code,
-            ]) ;
+        return redirect()->route('subjects.index')->with('success', 'Subject updated successfully.');
+    }
 
-            return redirect()->route('subject.index');
-        }
+    public function destroy(Subject $subject)
+    {
+        $subject->delete();
 
-        public function destroy($id)
-        {
-            DB::table('subjects')->where('id',$id)->delete();
-
-            return redirect()->back();
-
-        }
-
+        return redirect()->route('subjects.index')->with('success', 'Subject deleted successfully.');
+    }
 }

@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('class_groups', function (Blueprint $table) {
+        Schema::create('sections', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('subject');
-            $table->string('teacher_id');
-            $table->string('section');
-            $table->string('class');
-
+            $table->unsignedBigInteger('class_group_id');
+            $table->foreign('class_group_id')->references('id')->on('class_groups');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('class_groups');
+        Schema::dropIfExists('sections');
     }
 };

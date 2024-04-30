@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attendences', function (Blueprint $table) {
+        Schema::create('class_groups', function (Blueprint $table) {
             $table->id();
-            $table->string('reg_no');
-            $table->string('roll_no');
             $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attendences');
+        Schema::dropIfExists('class_groups');
     }
 };

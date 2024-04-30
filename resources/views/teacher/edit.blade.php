@@ -24,13 +24,6 @@
 
                                 </div>
 
-                                <div class="col-md-6">
-
-                                    <label for="address">Teacher Address *</label>
-                                    <input id="address" name="address" type="text" class="form-control"
-                                        placeholder="Teacher Address" value="{{ $teacher->address }}">
-
-                                </div>
 
                                 <div class="col-md-6">
 
@@ -43,9 +36,16 @@
 
                                 <div class="col-md-6">
 
-                                    <label for="phone">Teacher Email *</label>
-                                    <input id="phone" name="email" type="email" class="form-control"
+                                    <label for="email">Teacher Email *</label>
+                                    <input id="email" name="email" type="email" class="form-control"
                                         placeholder="Teacher Email" value="{{ $teacher->email }}">
+
+                                </div>
+                                <div class="col-md-6">
+
+                                    <label for="qualification">Teacher qualification *</label>
+                                    <input id="qualification" name="qualification" type="text" class="form-control"
+                                        placeholder="Teacher qualification" value="{{ $teacher->qualification }}">
 
                                 </div>
 

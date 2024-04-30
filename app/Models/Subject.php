@@ -8,10 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'code',
+    protected $guarded=['id'];
 
-    ] ;
+    public function ClassGroup(){
+        return $this->belongsTo(ClassGroup::class,'class_group_id');
+    }
+
+    public function assignSubjects()
+    {
+        return $this->hasMany(AssignSubject::class);
+    }
 
 }

@@ -17,5 +17,5 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="{{url('js/dashboard.js')}}"></script>
-  <script src="{url{('js/Chart.roundedBarCharts.js')}}"></script>
+  <script src="{{url('js/Chart.roundedBarCharts.js')}}"></script>
   <!-- End custom js for this page-->
