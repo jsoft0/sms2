@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
-            $table->string('phone', 20);
-            $table->string('qualification');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('phone', 20)->nullable();
+            $table->string('qualification')->nullable();
+            $table->rememberToken(); // Required for "remember me" functionality
             $table->timestamps();
         });
+        
     }
 
     /**
