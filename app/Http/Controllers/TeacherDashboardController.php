@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class TeacherDashboardController extends Controller
 {
-    //
+    public function index(){
+        return view('t_dashboard.index');
+    }
 }

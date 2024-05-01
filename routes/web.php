@@ -1,14 +1,16 @@
 <?php
 
-use App\Http\Controllers\AssignSubjectController;
-use App\Http\Controllers\AttendenceController;
-use App\Http\Controllers\ClassGroupController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AttendenceController;
+use App\Http\Controllers\ClassGroupController;
+use App\Http\Controllers\AssignSubjectController;
+use App\Http\Controllers\TeacherDashboardController;
+use App\Http\Controllers\Auth\TeacherLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,13 +66,13 @@ Route::middleware(['auth'])->group(function () {
 
 
 // Teacher Authentication Routes
-Route::get('/teacher/login', 'Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
-Route::post('/teacher/login', 'Auth\TeacherLoginController@login')->name('teacher.login.submit');
-Route::post('/teacher/logout', 'Auth\TeacherLoginController@logout')->name('teacher.logout');
+Route::get('/teacher/login', [TeacherLoginController::class, 'showLoginForm'])->name('teacher.login');
+Route::post('/teacher/login', [TeacherLoginController::class, 'login'])->name('teacher.login.submit');
+Route::post('/teacher/logout', [TeacherLoginController::class, 'logout'])->name('teacher.logout');
 
 // Teacher Dashboard Routes
 Route::prefix('teacher')->middleware('auth:teacher')->group(function () {
-    Route::get('/dashboard', 'TeacherDashboardController@index')->name('teacher.dashboard');
+    Route::get('/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
     // Add more teacher specific routes here
 });
 

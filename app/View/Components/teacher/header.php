@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\teacher;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class teacher.sidebar extends Component
+class header extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class teacher.sidebar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.teacher.sidebar');
+        return view('components.teacher.header');
     }
 }

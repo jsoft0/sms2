@@ -22,10 +22,7 @@
             <div class="collapse" id="attendence" style="">
                 <ul class="nav flex-column sub-menu">
 
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('add.attendence') }}">Add
-                            attendence</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('attendence.index') }}">Attendence
-                            List</a></li>
+                    
 
                 </ul>
             </div>
