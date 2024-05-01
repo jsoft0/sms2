@@ -28,6 +28,15 @@
     });
 </script>
 @endpush
+
+@push('css')
+<style>
+    .form-check .form-check-label{
+        margin-left: 2px;
+    }
+</style>
+
+@endpush
 @extends('layouts.dashboard')
 @section('content')
 
@@ -129,7 +138,7 @@
                     </div>
                     @isset($students)
                         @foreach ($students as $student)
-                            <div class="form-row">
+                            <div class="form-row align-items-center">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input type="text" name="student_id[]" class="form-control"
@@ -139,24 +148,24 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="checkbox ml-3">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio"
+                                    <div class="checkbox ml-3 form-group">
+                                        <div class="form-check form-check-inline d-inline">
+                                            <input class="form-check-input d-inline" type="radio"
                                                 name="attendance[{{ $student->id }}]" id="present{{ $student->id }}"
                                                 value="present">
-                                            <label class="form-check-label" for="present{{ $student->id }}">Present</label>
+                                            <label class="form-check-label d-inline " for="present{{ $student->id }}">Present</label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio"
+                                        <div class="form-check form-check-inline d-inline">
+                                            <input class="form-check-input d-inline" type="radio"
                                                 name="attendance[{{ $student->id }}]" id="absent{{ $student->id }}"
                                                 value="absent">
-                                            <label class="form-check-label" for="absent{{ $student->id }}">Absent</label>
+                                            <label class="form-check-label d-inline" for="absent{{ $student->id }}">Absent</label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio"
+                                        <div class="form-check form-check-inline d-inline">
+                                            <input class="form-check-input d-inline" type="radio"
                                                 name="attendance[{{ $student->id }}]" id="leave{{ $student->id }}"
                                                 value="leave">
-                                            <label class="form-check-label" for="leave{{ $student->id }}">Leave</label>
+                                            <label class="form-check-label d-inline d-inline" for="leave{{ $student->id }}">Leave</label>
                                         </div>
                                     </div>
                                 </div>

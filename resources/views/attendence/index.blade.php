@@ -8,7 +8,7 @@
             if (classId) {
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('attendance.sections') }}",
+                    url: "{{ route('attendence.sections') }}",
                     data: {
                         _token: "{{ csrf_token() }}",
                         class_id: classId
@@ -29,7 +29,7 @@
 </script>
 @endpush
 
-@extends('layouts.dashbaord')
+@extends('layouts.dashboard')
 @section('content')
 
 <div class="container">
@@ -37,7 +37,7 @@
 
         <div class="col-12 mt-3">
             <h2>Attendance Report</h2>
-            <form action="{{ route('attendance.index') }}" method="GET">
+            <form action="{{ route('attendence.index') }}" method="GET">
                 @csrf
                 <div class="form-row">
 

@@ -97,7 +97,7 @@ class AttendenceController extends Controller
 
         // Return a response indicating success
         // return response()->json(['message' => 'Attendance data saved successfully']);
-        return redirect()->route('attendance.create')->withInput($request->all());
+        return redirect()->route('attendence.create')->withInput($request->all());
     }
 
 
