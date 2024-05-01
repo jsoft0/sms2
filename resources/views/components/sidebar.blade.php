@@ -113,7 +113,7 @@
         <li class="nav-item active">
             <a class="nav-link collapsed" data-toggle="collapse" href="#attendence" aria-expanded="false"
                 aria-controls="form-elements">
-                <i class="icon-columns menu-icon"></i>
+                <i class="fa fa-user-circle"></i>
                 <span class="menu-title">Attendance</span>
                 <i class="menu-arrow"></i>
             </a>

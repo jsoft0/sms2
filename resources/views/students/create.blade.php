@@ -75,6 +75,7 @@
                     </div>
                     <div class="form-group">
                         <label for="section_id">Section</label>
+                        
                         <select name="section_id" id="section_id"
                             class="form-control @error('section_id') is-invalid @enderror" required>
                             <option value="">Select Section</option>
@@ -110,3 +111,29 @@
         </div>
     </div>
 @endsection
+
+
+
+@push('js')
+
+    <script>
+        $(document).ready(function() {
+            $('#class_group_id').change(function() {
+                var classGroupId = $(this).val();
+                $.ajax({
+                    url: "{{ route('sections.by_class_group') }}",
+                    type: 'POST',
+                    data: { class_group_id: classGroupId, _token: '{{ csrf_token() }}' },
+                    success: function(response) {
+                        $('#section_id').empty();
+                        $('#section_id').append('<option value="">Select Section</option>');
+                        $.each(response, function(key, value) {
+                            $('#section_id').append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+@endpush
