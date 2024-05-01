@@ -21,10 +21,10 @@
       </ul>
       <ul class="navbar-nav navbar-nav-right">
         <li class="nav-item dropdown">
-          <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+          {{-- <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
             <i class="icon-bell mx-0"></i>
             <span class="count"></span>
-          </a>
+          </a> --}}
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
             <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
             <a class="dropdown-item preview-item">
@@ -85,7 +85,7 @@
         </li>
         <li class="nav-item nav-settings d-none d-lg-flex">
           <a class="nav-link" href="#">
-            <i class="icon-ellipsis"></i>
+            {{-- <i class="icon-ellipsis"></i> --}}
           </a>
         </li>
       </ul>

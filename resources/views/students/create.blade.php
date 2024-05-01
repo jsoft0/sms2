@@ -3,8 +3,15 @@
 @section('content')
     <div class="content-wrapper">
         <div class="row stretch-card">
-            <div class="col-12 grid-margin">
-                <h1>Create Student</h1>
+            <div class="col-md-12 grid-margin">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Add Student</h2>
+                    </div>
+                    <div class="card-body">
+
+                {{-- <h1>Add Student</h1> --}}
                 <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -95,6 +102,10 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

@@ -1,10 +1,17 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="content-wrapper">
-        <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
-    <h1>Edit Student</h1>
+<div class="content-wrapper ">
+        <div class="row grid-margin stretch-card">
+        <div class="col-md-12 ">
+    {{-- <h1>Edit Student</h1> --}}
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Edit Student</h2>
+        </div>
+        <div class="card-body">
+
     <form action="{{ route('students.update', $student->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -84,7 +91,13 @@
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+
+        </div>
+    </div>
+
 </div>
 
         </div>
     </div>
+
+@endsection

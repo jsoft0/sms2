@@ -11,6 +11,8 @@ class Attendence extends Model
     protected $guarded=['id'];
 
 
+protected $fillable = ['class_id', 'section_id', 'attendance_date', /* other columns */];
+
 
 
     public function classGroup(){

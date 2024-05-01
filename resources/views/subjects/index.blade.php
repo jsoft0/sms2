@@ -21,10 +21,10 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"> Class List</h4>
+                    <h4 class="card-title"> Subject List</h4>
                     <a href="{{ route('subjects.create') }}" class="btn btn-success">Add Subject</a>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive mt-3">
 
                         <table class="table" id="classTable">
                             <thead>

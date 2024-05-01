@@ -21,10 +21,10 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"> Class List</h4>
-                    <a href="{{ route('students.create') }}" class="btn btn-success">Add Student</a>
+                    <h4 class="card-title">Add Student</h4>
+                    <a href="{{ route('students.create') }}" class="btn btn-success ">Add Student</a>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive mt-3">
 
                         <table class="table table-striped" id="classTable">
                             <thead>

@@ -1,13 +1,19 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Create Section</div>
 
+<div class="content-wrapper">
+
+        <div class="row grid-margin stretch-card">
+            <div class="col-md-12">
+                {{-- <h3>Add Section</h3> --}}
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Add Section</h2>
+                    </div>
                     <div class="card-body">
+
                         <form action="{{ route('sections.store') }}" method="POST">
                             @csrf
 
@@ -27,9 +33,15 @@
 
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
+
                     </div>
                 </div>
-            </div>
-        </div>
+
+                    </div>
+
+
+
+
     </div>
+
 @endsection

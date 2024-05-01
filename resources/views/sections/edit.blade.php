@@ -1,11 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
+
+<div class="content-wrapper ">
+    {{-- <div class="container"> --}}
+        <div class="row grid-margin stretch-card">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Edit Section</div>
+                    <div class="card-header">
+                        <h2>Edit Section</h2>
+                    </div>
 
                     <div class="card-body">
                         <form action="{{ route('sections.update', $section->id) }}" method="POST">

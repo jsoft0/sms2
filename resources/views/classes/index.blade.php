@@ -18,11 +18,12 @@
 @section('content')
     <div class="content-wrapper">
 
-        <div class="col-lg-12 grid-margin stretch-card">
+       <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title"> Class List</h4>
-                    <div class="table-responsive">
+                    <a href="{{ route('classes.create') }}" class="btn btn-success ">Add Class</a>
+                    <div class="table-responsive mt-3">
                         <table class="table table-hover display" id="classTable">
                             <thead>
                                 <tr>
@@ -39,27 +40,28 @@
                                         <td>{{ $classGroup->name }}</td>
                                         <td>
 
-                                            <div class="dropdown">
-                                                <button class="btn" type="button" data-toggle="dropdown"
+                                            {{-- <div class="dropdown"> --}}
+                                                {{-- <button class="btn" type="button" data-toggle="dropdown"
                                                     aria-expanded="false">
                                                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 
 
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{ route('classes.edit', $classGroup->id) }}">Edit</a>
+                                                </button> --}}
+                                                {{-- <div class="dropdown-menu"> --}}
+                                                    <a href="{{ route('classes.edit', $classGroup->id) }}" class="btn btn-primary">Edit</a>
 
-                                                    <form action="{{ route('classes.destroy', $classGroup->id) }}" method="POST">
+                                                    <form action="{{ route('classes.destroy', $classGroup->id) }}" method="POST" style="display: inline;>
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="dropdown-item">Delete</button>
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
                                                     </form>
 
 
 
-                                                </div>
-                                            </div>
+                                                {{-- </div> --}}
 
+
+                                            {{-- </div> --}}
 
                                         </td>
                                     </tr>

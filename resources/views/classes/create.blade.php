@@ -1,9 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
+
+<div class="content-wrapper">
+
+        <div class="row grid-margin stretch-card">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h2>Add Class</h2>
@@ -24,8 +26,10 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
-                </div>
+
             </div>
         </div>
-    </div>
+
+        </div>
+
 @endsection

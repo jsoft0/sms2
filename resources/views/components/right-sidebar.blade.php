@@ -1,4 +1,4 @@
-<div id="right-sidebar" class="settings-panel">
+{{-- <div id="right-sidebar" class="settings-panel">
     <i class="settings-close ti-close"></i>
     <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
         <li class="nav-item">
@@ -159,4 +159,4 @@
         </div>
         <!-- chat tab ends -->
     </div>
-</div>
+</div> --}}

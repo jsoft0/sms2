@@ -1,7 +1,12 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="container">
+    {{-- <div class="container"> --}}
+        <div class="content-wrapper ">
+
+        <div class="row grid-margin stretch-card">
+        <div class="col-md-12 ">
+
         <div class="card">
             <div class="card-header">
                 <h2>Edit Class</h2>
@@ -24,4 +29,8 @@
             </div>
         </div>
     </div>
+
+        </div>
+        </div>
+        </div>
 @endsection
