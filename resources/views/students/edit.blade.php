@@ -87,7 +87,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <img src="{{ asset($student->picture) }}" alt="Student Picture" class="img-thumbnail mt-2" style="max-width: 200px;">
+            <img src="{{ asset('storage/'.$student->picture) }}" alt="Student Picture" class="img-thumbnail mt-2" style="max-width: 200px;">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

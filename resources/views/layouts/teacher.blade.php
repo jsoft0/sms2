@@ -6,7 +6,7 @@
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
-        <x-header />
+        <x-teacher.header />
 
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">

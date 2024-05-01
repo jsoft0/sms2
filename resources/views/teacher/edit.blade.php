@@ -44,8 +44,8 @@
                                         placeholder="Teacher Email" value="{{ $teacher->email }}">
 
                                 </div>
+                                
                                 <div class="col-md-12 mt-3">
-
                                     <label for="qualification">Teacher qualification *</label>
                                     <input id="qualification" name="qualification" type="text" class="form-control"
                                         placeholder="Teacher qualification" value="{{ $teacher->qualification }}">

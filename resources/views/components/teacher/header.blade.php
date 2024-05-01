@@ -77,7 +77,7 @@
               <i class="ti-settings text-primary"></i>
               Settings
             </a> --}}
-            <a class="dropdown-item" href="{{ route('logout') }}"
+            <a class="dropdown-item" href="{{ route('teacher.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                                      <i class="ti-power-off text-primary"></i>

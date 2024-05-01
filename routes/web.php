@@ -62,6 +62,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('student/attendence', [AttendenceController::class, 'createAttendence'])->name('attendence.create');
     Route::post('student/attendence', [AttendenceController::class, 'storeAttendence'])->name('attendence.store');
     Route::get('studentreport/attendence', [AttendenceController::class, 'reportattendence'])->name('attendence.index');
+
+    Route::post('/sections-by-class-group', [AssignSubjectController::class, 'getSectionsByClassGroup'])->name('sections.by_class_group');
+
 });
 
 
