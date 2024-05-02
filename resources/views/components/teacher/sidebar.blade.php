@@ -12,9 +12,11 @@
         </li>
 
 
+
         <li class="nav-item active">
             <a class="nav-link collapsed" data-toggle="collapse" href="#attendence" aria-expanded="false"
                 aria-controls="form-elements">
+                {{-- <i class="fa fa-address-book" aria-hidden="true"></i> --}}
                 <i class="icon-columns menu-icon"></i>
                 <span class="menu-title">Attendance</span>
                 <i class="menu-arrow"></i>
@@ -22,7 +24,10 @@
             <div class="collapse" id="attendence" style="">
                 <ul class="nav flex-column sub-menu">
 
-                    
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('teacher.attendence.create') }}">Add
+                            attendence</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('teacher.attendence.index') }}">Attendence
+                            List</a></li>
 
                 </ul>
             </div>

@@ -1,112 +1,83 @@
-@extends('layouts.dashboard')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<x-head/>
+
+<body>
+
+    <!-- top header -->
+    <header class="bg-white border-bottom">
+
+        <div class=" border-bottom-3">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#">
+                    <h3><span>School Management System</span></h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="{{url('/')}}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="{{route('login')}}" target="_blank">Admin Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="{{route('teacher.login')}}" target="_blank">Teacher Login</a>
+                        </li>
 
 
-<div class="content-wrapper">
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
-    {{-- <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-title">Advanced Table</p>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="table-responsive">
-                                <table id="example" class="display expandable-table"
-                                    style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Quote#</th>
-                                            <th>Product</th>
-                                            <th>Business type</th>
-                                            <th>Policy holder</th>
-                                            <th>Premium</th>
-                                            <th>Status</th>
-                                            <th>Updated at</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+    </header>
+
+    <!-- slider -->
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="{{ url('assets/images/img_1.jpg ') }}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ url('assets/images/img_2.jpg ') }}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ url('assets/images/img_3.jpg ') }}" alt="Third slide">
                         </div>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
+
             </div>
-
-
         </div>
+    </div>
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
 
-    </div> --}}
+</body>
 
-    <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
-          {{-- <div class="card tale-bg">
-            <div class="card-people mt-auto">
-              <img src="assets/images/dashboard/people.svg" alt="people">
-              <div class="weather-info">
-                <div class="d-flex">
-                  <div>
-                    <h2 class="mb-0 font-weight-normal"><i class="icon-sun me-2"></i>31<sup>C</sup></h2>
-                  </div>
-                  <div class="ms-2">
-                    <h4 class="location font-weight-normal">Chicago</h4>
-                    <h6 class="font-weight-normal">Illinois</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> --}}
-        <div class="col-md-6 grid-margin transparent">
-          <div class="row">
-            <div class="col-md-6 mb-4 stretch-card transparent">
-              <div class="card card-tale">
-                <div class="card-body">
-                  <p class="mb-4">Today’s Bookings</p>
-                  <p class="fs-30 mb-2">40006</p>
-                  <p>10.00% (30 days)</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 mb-4 stretch-card transparent">
-              <div class="card card-dark-blue">
-                <div class="card-body">
-                  <p class="mb-4">Total Bookings</p>
-                  <p class="fs-30 mb-2">61344</p>
-                  <p>22.00% (30 days)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-              <div class="card card-light-blue">
-                <div class="card-body">
-                  <p class="mb-4">Number of Meetings</p>
-                  <p class="fs-30 mb-2">34040</p>
-                  <p>2.00% (30 days)</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 stretch-card transparent">
-              <div class="card card-light-danger">
-                <div class="card-body">
-                  <p class="mb-4">Number of Clients</p>
-                  <p class="fs-30 mb-2">47033</p>
-                  <p>0.22% (30 days)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-</div>
-
-
-@endsection
+</html>

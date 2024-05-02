@@ -32,7 +32,7 @@ class TeacherLoginController extends Controller
         if (Auth::guard('teacher')->attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/teacher/dashboard');
+            return redirect()->route('teacher.dashboard');
         }
 
         return back()->withErrors([

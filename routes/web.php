@@ -51,9 +51,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('add-teacher', [TeacherController::class, 'create'])->name('teacher.create');
     Route::post('add-teacher', [TeacherController::class, 'store'])->name('teacher.store');
     Route::get('teacher-list', [TeacherController::class, 'index'])->name('teacher.index');
+
     Route::get('edit-teacher/{teacher}', [TeacherController::class, 'edit'])->name('teacher.edit');
     Route::put('edit-teacher/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');
-    Route::delete('delete-teacher/{teacher}', [TeacherController::class, 'destroy'])->name('teacher.destroy');  
+    Route::delete('delete-teacher/{teacher}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 
     // Assign Subject Routes
     Route::resource('assign_subjects', AssignSubjectController::class)->except(['show']);
@@ -64,6 +65,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('studentreport/attendence', [AttendenceController::class, 'reportattendence'])->name('attendence.index');
 
     Route::post('/sections-by-class-group', [AssignSubjectController::class, 'getSectionsByClassGroup'])->name('sections.by_class_group');
+
+    // new route //
+Route::post('/attendence/sections', [AttendenceController::class, 'getSections'])->name('attendence.sections');
+Route::post('/attendence/sections1', [AttendenceController::class, 'getSections1'])->name('attendence.sections');
 
 });
 
@@ -77,6 +82,18 @@ Route::post('/teacher/logout', [TeacherLoginController::class, 'logout'])->name(
 Route::prefix('teacher')->middleware('auth:teacher')->group(function () {
     Route::get('/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
     // Add more teacher specific routes here
+
+    Route::get('mark/attendence', [TeacherDashboardController::class, 'createAttendence'])->name('teacher.attendence.create');
+    Route::post('store/attendence', [TeacherDashboardController::class, 'storeAttendence'])->name('teacher.attendence.store');
+    Route::get('studentreport/attendence', [TeacherDashboardController::class, 'reportattendence'])->name('teacher.attendence.index');
+
+    Route::post('/sections-by-class-group', [TeacherDashboardController::class, 'getSectionsByClassGroup'])->name('teacher.sections.by_class_group');
+
+
+    // new route //
+Route::post('/attendence/sections', [TeacherDashboardController::class, 'getSections'])->name('teacher.attendence.sections');
+Route::post('/attendence/sections1', [TeacherDashboardController::class, 'getSections1'])->name('teacher.attendence.sections');
+
 });
 
 
