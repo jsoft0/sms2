@@ -1,14 +1,16 @@
 <?php
 
-use App\Http\Controllers\AssignSubjectController;
-use App\Http\Controllers\AttendenceController;
-use App\Http\Controllers\ClassGroupController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AttendenceController;
+use App\Http\Controllers\ClassGroupController;
+use App\Http\Controllers\AssignSubjectController;
+use App\Http\Controllers\TeacherDashboardController;
+use App\Http\Controllers\Auth\TeacherLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,54 +27,58 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Class Routes
-Route::resource('classes', ClassGroupController::class);
+// Authenticated routes for CRUD operations
+Route::middleware(['auth'])->group(function () {
+    // Student Routes
+    Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+    Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+    Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+    Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
+    Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
+    Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
+    Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 
-// Teacher Routes
-Route::get('add-teacher', [TeacherController::class, 'create'])->name('teacher.create');
-Route::post('add-teacher', [TeacherController::class, 'store'])->name('teacher.store');
-Route::get('teacher-list', [TeacherController::class, 'index'])->name('teacher.index');
-Route::get('edit-teacher/{teacher}', [TeacherController::class, 'edit'])->name('teacher.edit');
-Route::put('edit-teacher/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');
-Route::delete('delete-teacher/{teacher}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
+    // Subject Routes
+    Route::resource('subjects', SubjectController::class)->except(['show']);
 
-// Student Routes
-Route::get('/students', [StudentController::class, 'index'])->name('students.index');
-Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
-Route::post('/students', [StudentController::class, 'store'])->name('students.store');
-Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
-Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
-Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
-Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
+    // Section Routes
+    Route::resource('sections', SectionController::class)->except(['show']);
 
-// Subject Routes
-Route::resource('subjects', SubjectController::class);
+    // Class Group Routes
+    Route::resource('classes', ClassGroupController::class)->except(['show']);
 
-// Section Routes
-Route::resource('sections', SectionController::class);
+    // Teacher Routes
+    Route::get('add-teacher', [TeacherController::class, 'create'])->name('teacher.create');
+    Route::post('add-teacher', [TeacherController::class, 'store'])->name('teacher.store');
+    Route::get('teacher-list', [TeacherController::class, 'index'])->name('teacher.index');
+    Route::get('edit-teacher/{teacher}', [TeacherController::class, 'edit'])->name('teacher.edit');
+    Route::put('edit-teacher/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');
+    Route::delete('delete-teacher/{teacher}', [TeacherController::class, 'destroy'])->name('teacher.destroy');  
 
-// Assign Subject Routes
-Route::resource('assign_subjects', AssignSubjectController::class);
-Route::post('/sections-by-class-group', [AssignSubjectController::class, 'getSectionsByClassGroup'])->name('sections.by_class_group');
+    // Assign Subject Routes
+    Route::resource('assign_subjects', AssignSubjectController::class)->except(['show']);
+
+    // attendence Routes
+    Route::get('student/attendence', [AttendenceController::class, 'createAttendence'])->name('attendence.create');
+    Route::post('student/attendence', [AttendenceController::class, 'storeAttendence'])->name('attendence.store');
+    Route::get('studentreport/attendence', [AttendenceController::class, 'reportattendence'])->name('attendence.index');
+
+    Route::post('/sections-by-class-group', [AssignSubjectController::class, 'getSectionsByClassGroup'])->name('sections.by_class_group');
+
+});
 
 
-// attendence Routes
-Route::get('student/attendence', [AttendenceController::class, 'createAttendence'])->name('attendence.create');
-Route::post('student/attendence', [AttendenceController::class, 'storeAttendence'])->name('attendence.store');
-Route::get('studentreport/attendence', [AttendenceController::class, 'reportAttendence'])->name('attendence.index');
-// new route //
-Route::post('/attendence/sections', [AttendenceController::class, 'getSections'])->name('attendence.sections');
-Route::post('/attendence/sections1', [AttendenceController::class, 'getSections1'])->name('attendence.sections');
+// Teacher Authentication Routes
+Route::get('/teacher/login', [TeacherLoginController::class, 'showLoginForm'])->name('teacher.login');
+Route::post('/teacher/login', [TeacherLoginController::class, 'login'])->name('teacher.login.submit');
+Route::post('/teacher/logout', [TeacherLoginController::class, 'logout'])->name('teacher.logout');
 
-// Route::get('add-attendence', function () {
-//     return view('attendence.add');
-// })->name('add.attendence');
-// Route::get('/attendence/create', [AttendenceController::class, 'create'])->name('attendence.create');
-// Route::post('add-attendence', [AttendenceController::class, 'store'])->name('attendence.store');
-// Route::get('attendences', [AttendenceController::class, 'index'])->name('attendence.index');
-// Route::get('edit-attendence/{attendence}', [AttendenceController::class, 'edit'])->name('attendence.edit');
-// Route::put('edit-attendence/{attendence}', [AttendenceController::class, 'update'])->name('attendence.update');
-// Route::delete('delete-attendence/{attendence}', [AttendenceController::class, 'destroy'])->name('attendence.destroy');
+// Teacher Dashboard Routes
+Route::prefix('teacher')->middleware('auth:teacher')->group(function () {
+    Route::get('/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
+    // Add more teacher specific routes here
+});
+
 
 // Authentication Routes
 Auth::routes();

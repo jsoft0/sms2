@@ -42,8 +42,19 @@
                                 <div class="form-group">
                                     <label for="email">Teacher Email</label>
                                     <input id="email" name="email" type="email" class="form-control"
-                                        placeholder="Teacher Email">
+                                        placeholder="Teacher Email" required>
                                     @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mt-2">
+                                <div class="form-group">
+                                    <label for="password">Teacher password</label>
+                                    <input id="password" name="password" type="password" class="form-control"
+                                        placeholder="Teacher password" value="Pa$$w0rd!" required>
+                                    @error('password')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
