@@ -78,3 +78,6 @@ Route::post('/attendence/sections1', [AttendenceController::class, 'getSections1
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+

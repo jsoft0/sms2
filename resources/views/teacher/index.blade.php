@@ -20,8 +20,9 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"> Class List</h4>
-                    <div class="table-responsive">
+                    <h4 class="card-title"> Teacher List</h4>
+                    <a href="{{ route('classes.create') }}" class="btn btn-success">Add Teacher</a>
+                    <div class="table-responsive mt-3">
                         <table class="table table-hover" id="classTable">
                             <thead>
                                 <tr>

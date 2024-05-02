@@ -182,7 +182,7 @@
                 <div class="row">
                     <div class="col">
 
-                        <div class="mt-3 ">
+                        {{-- <div class="mt-3 ">
                             <a href="http://127.0.0.1:8000/studentreport/attendence" target="_BLANK">
                                 <button class="btn btn-primary">View Report</button>
                             </a>
@@ -191,7 +191,7 @@
                                 <button class="btn btn-primary">Go Back</button>
                             </a>
 
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
