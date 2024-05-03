@@ -21,15 +21,16 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title"> Teacher List</h4>
-                    <a href="{{ route('classes.create') }}" class="btn btn-success">Add Teacher</a>
+                    <a href="{{ route('teacher.create') }}" class="btn btn-success">Add Teacher</a>
                     <div class="table-responsive mt-3">
                         <table class="table table-hover" id="classTable">
                             <thead>
                                 <tr>
-                                    <th>Teacher ID</th>
+                                    {{-- <th>Teacher ID</th> --}}
                                     <th>Teacher Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
+                                    <th>Qualification</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -37,10 +38,11 @@
                             <tbody>
                                 @foreach ($teachers as $teacher)
                                 <tr>
-                                    <td>{{$loop->iteration}}</td>
+                                    {{-- <td>{{$loop->iteration}}</td> --}}
                                     <td>{{$teacher->name}}</td>
                                     <td>{{$teacher->email}}</td>
                                     <td>{{$teacher->phone}}</td>
+                                    <td>{{$teacher->qualification}}</td>
                                     <td>
 
                                         <a  class="btn btn-primary" href="{{route('teacher.edit',$teacher->id)}}">Edit</a>

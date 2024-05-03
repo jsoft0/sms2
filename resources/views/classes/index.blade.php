@@ -27,7 +27,7 @@
                         <table class="table table-hover display" id="classTable">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    {{-- <th>#</th> --}}
                                     <th>Class</th>
                                     <th>Action</th>
 
@@ -36,7 +36,7 @@
                             <tbody>
                                 @foreach ($classGroups as $classGroup)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        {{-- <td>{{ $loop->iteration }}</td> --}}
                                         <td>{{ $classGroup->name }}</td>
                                         <td>
 
@@ -50,7 +50,7 @@
                                                 {{-- <div class="dropdown-menu"> --}}
                                                     <a href="{{ route('classes.edit', $classGroup->id) }}" class="btn btn-primary">Edit</a>
 
-                                                    <form action="{{ route('classes.destroy', $classGroup->id) }}" method="POST" style="display: inline;>
+                                                    <form action="{{ route('classes.destroy', $classGroup->id) }}" method="POST" style="display: inline;">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button>

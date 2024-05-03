@@ -98,7 +98,7 @@ class TeacherDashboardController extends Controller
 
         // Return a response indicating success
         // return response()->json(['message' => 'Attendance data saved successfully']);
-        return redirect()->route('t_dashboard.attendance.create')->withInput($request->all());
+        return redirect()->route('teacher.attendence.create')->withInput($request->all());
     }
 
 

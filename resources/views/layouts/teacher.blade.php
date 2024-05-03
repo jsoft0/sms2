@@ -35,6 +35,7 @@
     <!-- container-scroller -->
 
     <x-foot />
+    @include('flashy::message')
     @stack('js')
 
 </body>

@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('assign_subjects', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('teacher_id');
-            $table->foreign('teacher_id')->references('id')->on('teachers');
+            // $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreignId('teacher_id')
+           ->constrained()
+           ->onUpdate('cascade')
+           ->onDelete('cascade');
 
             $table->unsignedBigInteger('class_group_id');
             $table->foreign('class_group_id')->references('id')->on('class_groups');

@@ -49,7 +49,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12 mt-2">
+                            {{-- <div class="col-md-12 mt-2">
                                 <div class="form-group">
                                     <label for="password">Teacher password</label>
                                     <input id="password" name="password" type="password" class="form-control"
@@ -58,7 +58,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-12 mt-2">
                                 <div class="form-group">

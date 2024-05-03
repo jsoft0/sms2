@@ -117,7 +117,7 @@
                     @csrf
                     <div class="form-row">
                         <div class="col-md-6">
-                            <h2>attendence Date</h2>
+                            <h2>Attendence Date</h2>
                             <input type="date" name="attendance_date" class="form-control" required>
 
                             @if (session('error'))
@@ -132,8 +132,8 @@
                         <div class="col-md-6 mt-3">
                             <h2>Name</h2>
                         </div>
-                        <div class="col-md-6">
-                            <h2 class="ml-3">attendence</h2>
+                        <div class="col-md-6 mt-3">
+                            <h2 class="ml-3">Attendence</h2>
                         </div>
                     </div>
                     @isset($students)

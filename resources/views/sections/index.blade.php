@@ -26,18 +26,18 @@
                     <div class="card-body">
                         <h4 class="card-title">Section List</h4>
                         <a href="{{ route('sections.create') }}" class="btn btn-success">Add Subject</a>
-                        @if (session('success'))
+                        {{-- @if (session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
                             </div>
-                        @endif
+                        @endif --}}
 
                     <table class="table-responsive mt-3">
                         <table class="table table-striped" id="classTable">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
+                                    {{-- <th>ID</th> --}}
+                                    <th>section</th>
                                     <th>Class</th>
                                     <th>Actions</th>
                                 </tr>
@@ -45,15 +45,17 @@
                             <tbody>
                                 @foreach ($sections as $section)
                                     <tr>
-                                        <td>{{ $section->id }}</td>
+                                        {{-- <td>{{ $section->id }}</td> --}}
                                         <td>{{ $section->name }}</td>
                                         <td>{{ $section->classGroup->name }}</td>
+                                        {{-- <td>{{ $section->name }}</td> --}}
                                         <td>
                                             <a href="{{ route('sections.edit', $section->id) }}" class="btn btn-primary">Edit</a>
                                             <form action="{{ route('sections.destroy', $section->id) }}" method="POST" style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                                <button type="submit" class="btn btn-danger" >Delete</button>
+                                                <!--onclick="return confirm('Are you sure?')"-->
                                             </form>
                                         </td>
                                     </tr>
@@ -69,7 +71,7 @@
 
 </div>
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="row justify-content-center grid-margin">
             <div class="col-md-12">
                 <div class="card">
@@ -113,5 +115,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

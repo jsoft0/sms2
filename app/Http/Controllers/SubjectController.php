@@ -11,6 +11,7 @@ class SubjectController extends Controller
     public function index()
     {
         $subjects = Subject::all();
+        // return $subjects;
         return view('subjects.index', compact('subjects'));
     }
 
@@ -27,7 +28,8 @@ class SubjectController extends Controller
             'class_group_id' => 'required|exists:class_groups,id',
         ]);
 
-        Subject::create($request->all());
+        // return $request;
+        $subjct=Subject::create($request->all());
 
         return redirect()->route('subjects.index')->with('success', 'Subject created successfully.');
     }

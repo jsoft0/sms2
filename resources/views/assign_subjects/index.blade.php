@@ -34,9 +34,9 @@
         <table class="table mt-3 table-hover display" id="classTable">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Teacher</th>
-                    <th>Class Group</th>
+                    {{-- <th>ID</th> --}}
+                    <th>Teacher Name</th>
+                    <th>Class</th>
                     <th>Section</th>
                     <th>Subject</th>
                     <th>Action</th>
@@ -45,11 +45,17 @@
             <tbody>
                 @foreach($assignSubjects as $assignSubject)
                     <tr>
-                        <td>{{ $assignSubject->id }}</td>
-                        <td>{{ $assignSubject->teacher->name }}</td>
+                        {{-- <td>{{ $assignSubject->id }}</td> --}}
+                        <td>{{ optional($assignSubject->teacher)->name }}</td>
+                        <td>{{ optional($assignSubject->classGroup)->name }}</td>
+                        <td>{{ optional($assignSubject->section)->name }}</td>
+                        <td>{{ optional($assignSubject->subject)->name }}</td>
+
+
+                        {{-- <td>{{ $assignSubject->teacher->name }}</td>
                         <td>{{ $assignSubject->classGroup->name }}</td>
                         <td>{{ $assignSubject->section->name }}</td>
-                        <td>{{ $assignSubject->subject->name }}</td>
+                        <td>{{ $assignSubject->subject->name }}</td> --}}
                         <td>
                             <a href="{{ route('assign_subjects.edit', $assignSubject->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <form action="{{ route('assign_subjects.destroy', $assignSubject->id) }}" method="POST" style="display: inline;">

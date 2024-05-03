@@ -87,6 +87,7 @@ Route::prefix('teacher')->middleware('auth:teacher')->group(function () {
     Route::post('store/attendence', [TeacherDashboardController::class, 'storeAttendence'])->name('teacher.attendence.store');
     Route::get('studentreport/attendence', [TeacherDashboardController::class, 'reportattendence'])->name('teacher.attendence.index');
 
+
     Route::post('/sections-by-class-group', [TeacherDashboardController::class, 'getSectionsByClassGroup'])->name('teacher.sections.by_class_group');
 
 

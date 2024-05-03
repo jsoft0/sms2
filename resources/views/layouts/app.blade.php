@@ -57,5 +57,7 @@
     </div>
 
     <x-foot/>
+
+    @include('flashy::message')
 </body>
 </html>

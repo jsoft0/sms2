@@ -1,11 +1,11 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-        {{-- <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item active">
+            <a class="nav-link" href="/home">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
-        </li> --}}
+        </li>
 
         <li class="nav-item active">
             <a class="nav-link collapsed" data-toggle="collapse" href="#student" aria-expanded="false"
@@ -103,11 +103,10 @@
             <div class="collapse" id="assign_subjects" style="">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ route('assign_subjects.create') }}">Assign Subject</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('assign_subjects.index') }}">Subject List</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('assign_subjects.index') }}">Assign Subject List</a></li>
                 </ul>
             </div>
         </li>
-
 
 
         <li class="nav-item active">
@@ -123,8 +122,7 @@
 
                     <li class="nav-item"> <a class="nav-link" href="{{ route('attendence.create') }}">Add
                             attendence</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('attendence.index') }}">Attendence
-                            List</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('attendence.index') }}">View Report</a></li>
 
                 </ul>
             </div>

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('class_group_id');
-            $table->foreign('class_group_id')->references('id')->on('class_groups');
+            $table->foreign('class_group_id')->references('id')->on('class_groups')            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

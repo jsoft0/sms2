@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Dompdf\Dompdf;
+use Dompdf\Options;
 use App\Models\Section;
 use App\Models\Student;
+use App\Models\Subject;
 use App\Models\Attendence;
 use App\Models\ClassGroup;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Dompdf\Options;
 
 class AttendenceController extends Controller
 {
@@ -158,4 +159,6 @@ class AttendenceController extends Controller
             return view('attendence.index', compact('classes', 'sections', 'students'));
         }
     }
+
+
 }
